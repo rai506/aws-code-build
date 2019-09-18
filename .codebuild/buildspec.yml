@@ -13,7 +13,9 @@ phases:
     commands:
       - echo Entering build phase...
       - echo Build started on `date`
-  post_build:
+      - terraform init -input=false
+      - terraform plan --detailed-exitcode -input=false || ([ "$?" -eq "2" ] && exit 0);
+  postituild:
     commands:
       - echo Entering post_build phase...
       - echo Build completed on `date`
