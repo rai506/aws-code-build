@@ -1,7 +1,6 @@
 pipeline {
   agent {
   	docker {
-	script { sh("eval \$(aws ecr get-login --no-include-email | sed 's|https://||')") }
 	image '072976375213.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
     }
   }
