@@ -48,8 +48,8 @@ terraform {
   required_version = "=0.12.8"
   backend "s3" {
 
-    bucket         = "terraform-state.quangpm.io"
-    key            = "internal/codebuild/terraform.tfstate"
+    bucket         = "terraform-state.archanan.io"
+    key            = "internal/dev/terraform.tfstate"
     region         = "ap-southeast-1"
     encrypt        = "true"
 
