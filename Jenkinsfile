@@ -9,7 +9,7 @@ pipeline {
 
     stage('build') {
       steps {
-        sh '''echo "Build step"
+        sh 'terraform init'
 '''
         sh 'terraform plan'
       }
