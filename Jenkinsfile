@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+  agent {
+  	docker {
+	image '072976375213.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
+    }
+  }
 
     stages {
 
