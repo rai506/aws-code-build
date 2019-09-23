@@ -18,10 +18,23 @@ pipeline {
         sh 'echo "Test step"'
       }
     }
-    stage('deploy') {
+    stage('deploy dev') {
+      when {
+        branch 'INTERNAL-*'
+      }
       steps {
-        sh 'echo "Deploy step"'
+        sh 'echo "Deploy dev"'
       }
     }
+	
+    stage('deploy prd') {
+      when {
+        branch 'master'
+      }
+      steps {
+        sh 'echo "Deploy prd"'
+      }
+    }
+
   }
 }
