@@ -11,7 +11,7 @@ pipeline {
       steps {
         sh '''echo "Build step"
 '''
-        sh 'docker ps'
+        sh 'terraform plan'
       }
     }
     stage('test') {
