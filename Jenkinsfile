@@ -1,16 +1,13 @@
 pipeline {
-  agent {
-    docker {
-      image '072976375213.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
-    }
+  agent any
 
-  }
-  stages {
+    stages {
+
     stage('build') {
       steps {
         sh '''echo "Build step"
 '''
-        sh 'echo "Build step 2"'
+        sh 'docker ps'
       }
     }
     stage('test') {
