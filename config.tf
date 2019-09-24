@@ -15,16 +15,16 @@ locals {
   }
 }
 
-variable "role_arn" {
-  description = "Export your TF_VAR_role_arn to run terraform"
-  type        = string
-}
+#variable "role_arn" {
+#  description = "Export your TF_VAR_role_arn to run terraform"
+#  type        = string
+#}
 
-variable "external_id" {
-  description = "Export your TF_VAR_external_id to run terraform"
-  type        = string
-  default     = "b28c3f1e-f1d3-442e-b298-76dde32ee034"
-}
+#variable "external_id" {
+#  description = "Export your TF_VAR_external_id to run terraform"
+#  type        = string
+#  default     = "b28c3f1e-f1d3-442e-b298-76dde32ee034"
+#}
 
 provider "aws" {
   version = "2.17.0"
