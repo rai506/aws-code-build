@@ -21,6 +21,9 @@ pipeline {
       when {
         branch 'INTERNAL-*'
       }
+      timeout(time: 1, unit: "DAYS" ) {
+        input message: "Approve", submitter: 'admin'
+      }
       steps {
         sh 'echo "Deploy dev"'
       }
