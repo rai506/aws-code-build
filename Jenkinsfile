@@ -21,10 +21,10 @@ pipeline {
       when {
         branch 'INTERNAL-*'
       }
-      timeout(time: 1, unit: "DAYS" ) {
-        input message: "Approve", submitter: 'admin'
-      }
       steps {
+        timeout(time: 1, unit: "DAYS" ) {
+          input message: "Approve", submitter: 'admin'
+        }
         sh 'echo "Deploy dev"'
       }
     }
@@ -33,10 +33,11 @@ pipeline {
       when {
         branch 'master'
       }
-      timeout(time: 1, unit: "DAYS" ) {
-        input message: "Approve", submitter: 'admin'
-      }
+
       steps {
+        timeout(time: 1, unit: "DAYS" ) {
+          input message: "Approve", submitter: 'admin'
+        }
         sh 'terraform apply -input=false -auto-approve'
       }
     }
