@@ -1,21 +1,20 @@
 pipeline {
   agent {
   	docker {
-	image '072976375213.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
+	    image '072976375213.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
     }
   }
 
     stages {
 
-    stage('build') {
+    stage('Build') {
       steps {
-        sh 'terraform init'
-        sh 'terraform plan'
+        sh 'terraform init -input=false'
       }
     }
-    stage('test') {
+    stage('Test') {
       steps {
-        sh 'echo "Test step"'
+        sh 'terraform plan --detailed-exitcode -input=false || ([ "$?" -eq "2" ] && exit 0);'
       }
     }
     stage('deploy dev') {
@@ -31,8 +30,11 @@ pipeline {
       when {
         branch 'master'
       }
+      timeout(time: 1, unit: "DAYS" ) {
+        input message: "Approve", submitter: 'admin'
+      }
       steps {
-        sh 'echo "Deploy prd"'
+        sh 'terraform apply -input=false -auto-approve'
       }
     }
 
