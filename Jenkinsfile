@@ -15,6 +15,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'terraform plan --detailed-exitcode -input=false || ([ "$?" -eq "2" ] && exit 0);'
+	sh 'docker ps'
       }
     }
     stage('deploy dev') {
