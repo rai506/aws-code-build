@@ -32,7 +32,7 @@ pipeline {
 
     stage('deploy prd') {
       when {
-        branch 'master'
+        branch 'INTERNAL-*'
       }
 
       steps {
