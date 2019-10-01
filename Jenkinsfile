@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'terraform plan --detailed-exitcode -input=false || ([ "$?" -eq "2" ] && exit 0);'
+        sh 'terraform plan --detailed-exitcode -input=false -no-color|| ([ "$?" -eq "2" ] && exit 0);'
       }
     }
     stage('deploy dev') {
