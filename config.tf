@@ -30,7 +30,7 @@ provider "aws" {
   version = "2.17.0"
   region  = "ap-southeast-1"
   assume_role {
-    role_arn    = "dev-ap-southeast-1-internal-jenkins-operation-iam-role"
+    role_arn    = "arn:aws:iam::276493936417:role/dev-ap-southeast-1-internal-jenkins-operation-iam-role"
   }
 }
 
