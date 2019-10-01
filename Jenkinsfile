@@ -1,7 +1,7 @@
 pipeline {
   agent {
   	docker {
-	    image '072976375213.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
+	    image '276493936417.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
     }
   }
 
