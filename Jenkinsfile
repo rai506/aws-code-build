@@ -6,7 +6,7 @@ pipeline {
 
   agent {
   	docker {
-	    image '072976375213.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
+	    image '${env.AWS_ACCOUNT_ID}.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
     }
   }
 
