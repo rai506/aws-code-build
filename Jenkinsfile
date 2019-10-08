@@ -1,4 +1,9 @@
-env.TEST=credentials('aws-account-id')
+node {
+    stage('Choose Label') {
+        TEST = credentials('aws-account-id')
+    }
+}
+
 
 pipeline {
 
