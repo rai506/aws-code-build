@@ -1,17 +1,7 @@
-node {
-  environment {
-    AWS_ACCOUNT_ID = credentials('aws-account-id')
-  }
-  stage('Choose Label') {
-    env.AWS_ACCOUNT_ID = ${AWS_ACCOUNT_ID}
-  }
-}
-
-
 pipeline {
 
   environment {
-    AWS_ACCOUNT_ID = credentials('aws-account-id')
+    env.AWS_ACCOUNT_ID = credentials('aws-account-id')
   }
 
   agent {
