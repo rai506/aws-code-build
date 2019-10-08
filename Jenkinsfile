@@ -1,3 +1,5 @@
+env.TEST="123"
+
 pipeline {
 
   environment {
