@@ -1,4 +1,4 @@
-env.TEST="123"
+env.TEST=credentials('aws-account-id')
 
 pipeline {
 
