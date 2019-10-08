@@ -1,7 +1,10 @@
 node {
-    stage('Choose Label') {
-      env.TEST = credentials('aws-account-id')
-    }
+  environment {
+    AWS_ACCOUNT_ID = credentials('aws-account-id')
+  }
+  stage('Choose Label') {
+    env.AWS_ACCOUNT_ID = ${AWS_ACCOUNT_ID}
+  }
 }
 
 
@@ -9,12 +12,11 @@ pipeline {
 
   environment {
     AWS_ACCOUNT_ID = credentials('aws-account-id')
-    TEST = '123'
   }
 
   agent {
   	docker {
-	    image '${TEST}.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
+	    image '${AWS_ACCOUNT_ID}.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
     }
   }
 
