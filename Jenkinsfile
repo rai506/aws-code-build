@@ -1,4 +1,9 @@
 pipeline {
+
+  environment {
+    AWS_ACCOUNT_ID = credentials('aws-account-id')
+  }
+
   agent {
   	docker {
 	    image '276493936417.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
@@ -42,12 +47,12 @@ pipeline {
         sh 'terraform apply -input=false -auto-approve'
       }
     }
-   } 
+   }
     post {
         failure {
         mail to: 'pmquang1990@gmail.com',
              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-             body: "Something is wrong with ${env.BUILD_URL}"
+             body: "Something is wrong with ${env.BUILD_URL} ${env.AWS_ACCOUNT_ID}"
     }}
 
 }
