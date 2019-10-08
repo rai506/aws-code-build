@@ -2,11 +2,12 @@ pipeline {
 
   environment {
     AWS_ACCOUNT_ID = credentials('aws-account-id')
+    TEST = '123'
   }
 
   agent {
   	docker {
-	    image '${BUILD_NUMBER}.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
+	    image '${TEST}.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
     }
   }
 
