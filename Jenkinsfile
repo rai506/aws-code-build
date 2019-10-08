@@ -1,6 +1,6 @@
 node {
     stage('Choose Label') {
-        TEST = credentials('aws-account-id')
+      env.TEST = credentials('aws-account-id')
     }
 }
 
