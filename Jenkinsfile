@@ -12,7 +12,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        build job: 'test'
+        build job: 'pipeline'
       }
     }
     stage('Test') {
