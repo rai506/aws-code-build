@@ -12,14 +12,15 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'terraform init -input=false'
+        sh 'echo "Build"'
       }
     }
     stage('Test') {
       steps {
-        sh 'terraform plan --detailed-exitcode -input=false -no-color|| ([ "$?" -eq "2" ] && exit 0);'
+        sh 'echo "Test"'
       }
     }
+
     stage('deploy dev') {
       when {
         branch 'INTERNAL-*'
@@ -28,7 +29,7 @@ pipeline {
         timeout(time: 1, unit: "DAYS" ) {
           input message: "Approve", submitter: 'admin'
         }
-        sh 'echo "Deploy dev"'
+        sh 'echo "Deploy Dev"'
       }
     }
 
@@ -41,7 +42,7 @@ pipeline {
         timeout(time: 1, unit: "DAYS" ) {
           input message: "Approve", submitter: 'admin'
         }
-        sh 'terraform apply -input=false -auto-approve'
+        sh 'echo "Deploy Production"'
       }
     }
    }
