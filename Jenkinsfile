@@ -12,7 +12,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'echo "Build"'
+        build job: 'test'
       }
     }
     stage('Test') {
