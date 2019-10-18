@@ -1,5 +1,4 @@
 pipeline {
-
   agent {
   	docker {
 	    image '${AWS_ACCOUNT_ID}.dkr.ecr.ap-southeast-1.amazonaws.com/internal/terraform:alpine-3.10'
@@ -52,5 +51,4 @@ pipeline {
              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
              body: "Something is wrong with ${env.BUILD_URL} ${env.AWS_ACCOUNT_ID}"
     }}
-
 }
